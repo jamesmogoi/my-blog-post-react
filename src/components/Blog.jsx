@@ -1,4 +1,5 @@
 import './Blog.css'
+import { Link } from 'react-router-dom'; 
 
 function Blog() {
     const posts = [
@@ -30,8 +31,10 @@ function Blog() {
             <div key={index} className='card'>
                 <img src={post.image} alt={post.title}  className='w-full h-40 object-cover rounded-md mb-4'/>
                 <h2>{post.title}</h2>
-                <p>{post.content}</p>
-                <p><b>by {post.author} </b> - {post.date} at {post.time}</p>
+                <p><b>by {post.author} </b> </p>
+                <Link to={`/blog/${post.id}`} state={ post} className='text-blue-500 hover:underline mt-2 block'>
+                    Read More
+                </Link>
             </div>
          ))}
          </div>
